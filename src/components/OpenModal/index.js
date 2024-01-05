@@ -59,7 +59,6 @@ const OpenModal = ({ openModal, setOpenModal, getUserData }) => {
       );
       setOpenModal(false);
       getUserData();
-      console.log('data', data);
     } catch (error) {
       console.log('error', error);
     }
@@ -76,7 +75,6 @@ const OpenModal = ({ openModal, setOpenModal, getUserData }) => {
       const { data } = await axios.get(
         `${process.env.REACT_APP_API_URL}/get-application/${id}`,
       );
-      console.log('data', data);
       setValue('firstName', data?.firstname);
       setValue('lastName', data?.lastname);
       const originalDate = new Date(data?.dateofbirth);
@@ -87,7 +85,6 @@ const OpenModal = ({ openModal, setOpenModal, getUserData }) => {
       setValue('address.state', data?.address_state);
       setValue('address.zipCode', data?.address_zipcode);
       data?.vehicles?.map((value, i) => {
-        console.log('value', value);
         setValue(`vehicles[${i}].vin`, value?.vin);
         setValue(`vehicles[${i}].year`, value?.year);
         setValue(`vehicles[${i}].makeAndModel`, value?.makeAndModel);

@@ -15,7 +15,6 @@ const SingleUser = () => {
       const { data } = await axios.get(
         `${process.env.REACT_APP_API_URL}/get-application/${id}`,
       );
-      console.log('data', data);
       setUserData(data);
     } catch (error) {
       if (!(error.response?.status === 200)) {
